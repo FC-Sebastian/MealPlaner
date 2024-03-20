@@ -1,9 +1,9 @@
 <?php
 include __DIR__."/autoloader.php";
-
 $controller = \Controller\Test::class;
+
 if (isset($_REQUEST['controller'])) {
-    $controller = $_REQUEST['controller'];
+    $controller = 'Controller\\'.$_REQUEST['controller'];
 }
 
 $controllerObject = new $controller();

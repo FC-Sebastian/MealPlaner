@@ -8,6 +8,7 @@
         <title>
             <?php if (isset($title)) {echo $title;}?>
         </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="<?php echo $url;?>">
         <script src="<?= $controller->getUrl("/js/jquery-3.6.3.js") ?>"></script>
     </head>

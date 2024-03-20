@@ -62,6 +62,34 @@ class BaseModel
         }
     }
 
+    public function loadAll()
+    {
+        $query = "SELECT * FROM " . $this->getTableName();
+        $result = DbConnection::executeMySQLQuery($query);
+        if (mysqli_num_rows($result) == 0) {
+            return false;
+        }
+        $dataArray = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $return = [];
+
+        foreach ($dataArray as $row) {
+            $unit = new $this;
+            $unit->assign($row);
+            $return[] = $unit;
+        }
+        return $return;
+    }
+
+    public function assign($data)
+    {
+        if (is_array($data)) {
+            foreach ($data as $key => $value) {
+                $setString = "set" . $key;
+                $this->$setString($value);
+            }
+        }
+    }
+
     public function save()
     {
         if (isset($this->data["id"])) {
