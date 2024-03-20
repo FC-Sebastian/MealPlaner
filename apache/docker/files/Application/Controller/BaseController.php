@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller;
+
 class BaseController
 {
     protected $startsSession = false;
@@ -36,7 +38,7 @@ class BaseController
 
     public function getUrl($sitename = "")
     {
-        return conf::getParam("url") . $sitename;
+        return \Classes\Conf::getParam("url") . $sitename;
     }
 
     public function getRequestParameter($key, $default = false)
@@ -50,22 +52,22 @@ class BaseController
     public function render()
     {
         if ($this->view === false) {
-            throw new Exception("NO VIEW FOUND");
+            throw new \Exception("NO VIEW FOUND");
         }
 
         $viewPath = __DIR__ . "/../../Views/" . $this->view . ".php";
         if (!file_exists($viewPath)) {
-            throw new Exception("VIEW FILE NOT FOUND");
+            throw new \Exception("VIEW FILE NOT FOUND");
         }
 
         $controller = $this;
 
         ob_start();
         try {
-            $url = $controller->getUrl("css/bootstrap.css");
+            $url = $controller->getUrl("/css/bootstrap.css");
             $title = $controller->getTitle();
             include $viewPath;
-        } catch (Throwable $exc) {
+        } catch (\Throwable $exc) {
             $controller->setErrorMessage($exc->getMessage());
         }
         $output = ob_get_contents();

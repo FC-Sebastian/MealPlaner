@@ -1,5 +1,7 @@
 <?php
 
+namespace Classes;
+
 class DbConnection
 {
     protected static $conn = null;
@@ -15,7 +17,7 @@ class DbConnection
                 Conf::getParam("db")
             );
             if (self::$conn->connect_error) {
-                throw new Exception("Connection failed: " . mysqli_connect_error());
+                throw new \Exception("Connection failed: " . mysqli_connect_error());
             }
         }
         return self::$conn;
@@ -23,15 +25,15 @@ class DbConnection
 
     /**
      * @param $query
-     * @return bool|mysqli_result
-     * @throws Exception
+     * @return bool|\mysqli_result
+     * @throws \Exception
      */
     public static function executeMysqlQuery($query)
     {
         $result = mysqli_query(self::getDbConnection(), $query);
         $error = mysqli_error(self::getDbConnection());
         if (!empty($error)) {
-            throw new Exception("MYSQL-Error: " . $error . " in Query: " . $query);
+            throw new \Exception("MYSQL-Error: " . $error . " in Query: " . $query);
         }
         //echo "<br>",$query,"<br>";
         return $result;

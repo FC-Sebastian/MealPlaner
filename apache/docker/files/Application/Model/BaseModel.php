@@ -1,5 +1,9 @@
 <?php
 
+namespace Model;
+
+use Classes\DbConnection;
+
 class BaseModel
 {
     protected $tablename = false;

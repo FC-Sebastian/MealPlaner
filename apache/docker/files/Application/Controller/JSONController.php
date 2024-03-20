@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller;
+
 abstract class JSONController extends BaseController
 {
     /**

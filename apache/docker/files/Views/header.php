@@ -9,7 +9,7 @@
             <?php if (isset($title)) {echo $title;}?>
         </title>
         <link rel="stylesheet" href="<?php echo $url;?>">
-        <script src="<?= $controller->getUrl("js/jquery-3.6.3.js") ?>"></script>
+        <script src="<?= $controller->getUrl("/js/jquery-3.6.3.js") ?>"></script>
     </head>
     <body class="bg-primary bg-opacity-10" onload="<?php echo $controller->getOnload()?>">
     <?php if ($controller->getError() !== false):?>

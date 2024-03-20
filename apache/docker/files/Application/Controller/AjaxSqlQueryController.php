@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller;
+
 abstract class AjaxSqlQueryController extends BaseController
 {
     public function render()
