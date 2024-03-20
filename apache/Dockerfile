@@ -1,7 +1,5 @@
 FROM php:8.1-apache
 
-MAINTAINER robert.mueller@fatchip.de
-
 # timezone / date
 RUN echo "Europe/Berlin" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 

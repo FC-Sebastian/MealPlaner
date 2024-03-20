@@ -3,13 +3,13 @@ version: '3'
 services:
 
   docker_apache:
-    build: apache/docker/.
+    build: apache/.
     hostname: ${DOMAIN}
     restart: "no"
     depends_on:
       - docker_mysql
     volumes:
-      - ./apache/docker/files:/var/www/html:cached
+      - ./apache/files:/var/www/html:cached
     environment:
       DOMAIN: ${DOMAIN}
       APACHE_PORT: ${APACHE_PORT}
@@ -27,6 +27,8 @@ services:
     image: mysql:5.7
     hostname: mysql.${DOMAIN}
     restart: "no"
+    volumes:
+    - ./mysql/dump.sql:/docker-entrypoint-initdb.d/dump.sql:ro
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}

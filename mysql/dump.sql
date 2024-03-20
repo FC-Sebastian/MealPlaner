@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `docker`
 --
+CREATE DATABASE IF NOT EXISTS `docker` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `docker`;
 
 -- --------------------------------------------------------
 
