@@ -10,7 +10,11 @@
         </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="<?php echo $url;?>">
-        <script src="<?= $controller->getUrl("/js/jquery-3.6.3.js") ?>"></script>
+        <script src="<?= $controller->getUrl("js/jquery-3.6.3.js") ?>"></script>
+        <script src="<?= $controller->getUrl("js/base.js") ?>"></script>
+        <script type="text/javascript">
+            const url = '<?= $controller->getUrl() ?>';
+        </script>
     </head>
     <body class="bg-primary bg-opacity-10" onload="<?php echo $controller->getOnload()?>">
     <?php if ($controller->getError() !== false):?>

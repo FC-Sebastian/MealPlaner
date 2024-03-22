@@ -101,6 +101,7 @@ class BaseModel
             $this->update();
         } else {
             $this->insert();
+            $this->setId($this->getLastInsertId());
         }
     }
 
@@ -111,6 +112,24 @@ class BaseModel
         }
         $query = "DELETE FROM " . $this->getTableName() . " WHERE id='$id'";
         DbConnection::executeMysqlQuery($query);
+    }
+
+    public function loadByColumnValue($column, $value)
+    {
+        $query = "SELECT * FROM " . $this->getTableName() . " WHERE $column='$value';";
+        $result = DbConnection::executeMySQLQuery($query);
+        if (mysqli_num_rows($result) == 0) {
+            return false;
+        }
+        $dataArray = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $return = [];
+
+        foreach ($dataArray as $row) {
+            $unit = new $this;
+            $unit->assign($row);
+            $return[] = $unit;
+        }
+        return $return;
     }
 
     protected function insert()
@@ -135,5 +154,16 @@ class BaseModel
         }
         $query = $querybegin . substr($querymid, 0, -1) . $queryend;
         DbConnection::executeMySQLQuery($query);
+    }
+
+    protected function getLastInsertId()
+    {
+        $query = 'SELECT LAST_INSERT_ID();';
+        $result = DbConnection::executeMysqlQuery($query);
+
+        if (mysqli_num_rows($result) == 0) {
+            return false;
+        }
+        return mysqli_fetch_column($result);
     }
 }

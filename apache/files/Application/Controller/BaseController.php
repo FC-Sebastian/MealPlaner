@@ -64,7 +64,7 @@ class BaseController
 
         ob_start();
         try {
-            $url = $controller->getUrl("/css/bootstrap.css");
+            $url = $controller->getUrl("css/bootstrap.css");
             $title = $controller->getTitle();
             include $viewPath;
         } catch (\Throwable $exc) {
@@ -82,5 +82,11 @@ class BaseController
     {
         header("location: " . $url);
         exit();
+    }
+
+    public function getUnits()
+    {
+        $unit = new \Model\Unit();
+        return $unit->loadAll();
     }
 }
