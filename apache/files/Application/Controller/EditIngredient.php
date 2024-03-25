@@ -6,6 +6,8 @@ class EditIngredient extends BaseController
 {
     protected $view = 'ingredient/edit';
     protected $title = 'Zutat bearbeiten';
+    protected $activeHeader = 'ingredient';
+    protected $activeSubHeader = 'edit';
 
     public $edit = null;
 

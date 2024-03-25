@@ -8,6 +8,16 @@ class BaseController
     protected $view = false;
     protected $error = false;
     protected $onloadFuntction = "";
+    protected $activeHeader;
+    protected $activeSubHeader;
+
+    public function isActiveHeader($header) {
+        return $header === $this->activeHeader;
+    }
+
+    public function isActiveSubHeader($header) {
+        return $header === $this->activeSubHeader;
+    }
 
     public function getOnload()
     {

@@ -6,6 +6,8 @@ class EditRecipe extends BaseController
 {
     protected $view = 'recipe/edit';
     protected $title = 'Rezept bearbeiten';
+    protected $activeHeader = 'recipe';
+    protected $activeSubHeader = 'edit';
 
     public $edit = null;
 

@@ -1,6 +1,6 @@
 <?php
 include __DIR__."/autoloader.php";
-$controller = \Controller\Test::class;
+$controller = \Controller\Dashboard::class;
 
 if (isset($_REQUEST['controller'])) {
     $controller = 'Controller\\'.$_REQUEST['controller'];
