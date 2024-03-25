@@ -1,10 +1,10 @@
 <?php
 /**
- * @var $controller \Controller\
+ * @var $controller \Controller\EditRecipe
  */
 ?>
 <h2 class="text-center mb-3"> Rezept hinzufügen</h2>
-<form class="form" action="<?= $controller->getUrl('?controller=EditIngredient&action=save') ?>" enctype="multipart/form-data" method="post">
+<form class="form" action="<?= $controller->getUrl('?controller=EditRecipe&action=save') ?>" enctype="multipart/form-data" method="post">
     <?php if (isset($controller->edit)) {?>
         <input type="hidden" name="id" value="<?= $controller->edit->getId() ?>">
     <?php } ?>
@@ -13,18 +13,19 @@
         <label>Titel</label>
     </div>
     <div class="row w-50 mx-auto form-floating mb-2">
-        <textarea class="col-12 form-control" name="title"  placeholder="" required><?= isset($controller->edit) ? $controller->edit->getRecipe() : '' ?></textarea>
+        <textarea class="col-12 form-control" name="recipe"  placeholder="" required><?= isset($controller->edit) ? $controller->edit->getRecipe() : '' ?></textarea>
         <label>Rezept</label>
     </div>
     <div class="row w-50 mx-auto form-floating mb-2">
-        <input class="col-12 form-control" name="title" type="number" placeholder="" value="<?= isset($controller->edit) ? $controller->edit->getPortions() : '' ?>" required>
+        <input class="col-12 form-control" name="portions" type="number" placeholder="" value="<?= isset($controller->edit) ? $controller->edit->getPortions() : '' ?>" required>
         <label>Portionen</label>
     </div>
     <div id="recipe2ingredient">
         <?php if (isset($controller->edit)) {?>
             <?php $ingredients = $controller->edit->getIngredients() ?>
             <?php for ($i = 0; $i < count($ingredients); $i++) { ?>
-                <div class="card card-body w-50 mx-auto mb-2">
+                <div id="ingredient<?= $ingredients[$i]->getId() ?>" class="card card-body w-50 mx-auto mb-2">
+                    <input type="hidden" name="ingredient[<?= $i ?>][id]" value="<?= $ingredients[$i]->getId() ?>">
                     <div class="row w-50 mx-auto mb-2">
                         <select class="form-select" name="ingredient[<?= $i ?>][ingredient]" required>
                             <option value="" selected disabled>Zutat</option>
@@ -46,6 +47,11 @@
                             <?php } ?>
                         </select>
                     </div>
+                    <?php if ($i > 0) { ?>
+                        <div class="row w-50 mx-auto mt-2">
+                            <button class="btn btn-danger" type="button" onclick="deleteIngredient(<?= $ingredients[$i]->getId() ?>)">Löschen</button>
+                        </div>
+                    <?php } ?>
                 </div>
             <?php } ?>
         <?php } else { ?>
@@ -82,4 +88,4 @@
     </div>
 </form>
 
-<script src="<?= $controller->getUrl('js/EditIngredient.js') ?>"></script>
+<script src="<?= $controller->getUrl('js/EditRecipe.js') ?>"></script>

@@ -132,6 +132,17 @@ class BaseModel
         return $return;
     }
 
+    public function getIdByColumnValue($column, $value)
+    {
+        $query = "SELECT id FROM $this->tablename WHERE $column='$value'";
+        $result = \Classes\DbConnection::executeMysqlQuery($query);
+
+        if (mysqli_num_rows($result) == 0) {
+            return false;
+        }
+        return mysqli_fetch_column($result);
+    }
+
     protected function insert()
     {
         $querybegin = "INSERT INTO " . $this->getTableName() . " (";

@@ -1,6 +1,6 @@
 let buyOptionDiv = $('#amount2ingredient');
 
-$('#addBuy').on('click', getBuyOptionDiv);
+$('#addBuy').on('click', addBuyOptionDiv);
 
 function deleteBuyOption(id)
 {
@@ -16,7 +16,7 @@ function deleteBuyOption(id)
     });
 }
 
-function getBuyOptionDiv()
+function addBuyOptionDiv()
 {
     let index = buyOptionDiv.children().length;
 
@@ -37,13 +37,5 @@ function getBuyOptionDiv()
         div.append(delButtonDiv);
 
         buyOptionDiv.append(div);
-    });
-}
-
-async function getUnitOptions()
-{
-    return $.ajax({
-        url: url + '?controller=GetUnitOptions',
-        method: 'GET'
     });
 }

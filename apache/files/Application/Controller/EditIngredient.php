@@ -20,10 +20,6 @@ class EditIngredient extends BaseController
 
         $this->edit = $ingredient;
 
-        if (!$id) {
-            $id = $ingredient->getIdByName('name');
-        }
-
         $buyOptions = $this->getRequestParameter('buyOption');
 
         foreach ($buyOptions as $buyOption) {

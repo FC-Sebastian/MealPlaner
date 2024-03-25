@@ -53,7 +53,7 @@
                     <label>Menge</label>
                 </div>
                 <div class="row w-50 mx-auto">
-                    <select class="form-select"name="buyOption[0][unit]" required>
+                    <select class="form-select" name="buyOption[0][unit]" required>
                         <option value="" selected disabled>Einheit</option>
                         <option value="0">Keine Einheit</option>
                         <?php foreach ($controller->getUnits() as $unit) { ?>

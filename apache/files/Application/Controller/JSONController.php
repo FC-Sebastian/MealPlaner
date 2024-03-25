@@ -15,4 +15,14 @@ abstract class JSONController extends BaseController
     }
 
     abstract protected function getJsonData();
+
+    protected function getOptions($options, $getString)
+    {
+        $return = [];
+        foreach ($options as $option) {
+            $return[] = "<option value='".$option->getId()."'>".$option->$getString()."</option>";
+        }
+
+        return $return;
+    }
 }

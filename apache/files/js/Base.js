@@ -32,7 +32,7 @@ function createDeleteButton(buttonText, delDiv)
     return div;
 }
 
-function createSelectInput(name, defaultOptionText, defaultOptionValue, options, required = true)
+function createSelectInput(name, defaultOptionText, defaultOptionValue, options, required = true, defaultDisabled = false)
 {
     let div = document.createElement('div');
     div.className = 'row w-50 mx-auto mb-2';
@@ -44,6 +44,7 @@ function createSelectInput(name, defaultOptionText, defaultOptionValue, options,
     let option = document.createElement('option');
     option.innerText = defaultOptionText;
     option.value = defaultOptionValue;
+    option.disabled = defaultDisabled;
     select.append(option);
 
     for (let i = 0; i < options.length; i++) {
@@ -51,5 +52,15 @@ function createSelectInput(name, defaultOptionText, defaultOptionValue, options,
     }
 
     div.append(select);
+    select.selectedIndex = 0;
+
     return div;
+}
+
+async function getUnitOptions()
+{
+    return $.ajax({
+        url: url + '?controller=GetUnitOptions',
+        method: 'GET'
+    });
 }
