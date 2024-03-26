@@ -28,7 +28,7 @@
         <script src="<?= $controller->getUrl("lib/tempusdominus/js/moment.min.js") ?>"></script>
         <script src="<?= $controller->getUrl("lib/tempusdominus/js/moment-timezone.min.js") ?>"></script>
         <script src="<?= $controller->getUrl("lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js") ?>"></script>
-        <script src="<?= $controller->getUrl("js/main.js") ?>"></script>
-        <script src="<?= $controller->getUrl("js/base.js") ?>"></script>
+        <script src="<?= $controller->getUrl("js/main.js") ?>" defer></script>
+        <script src="<?= $controller->getUrl("js/base.js") ?>" defer></script>
     </body>
 </html>

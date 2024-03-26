@@ -72,4 +72,4 @@
     </div>
 </form>
 
-<script src="<?= $controller->getUrl('js/EditIngredient.js') ?>"></script>
+<script src="<?= $controller->getUrl('js/editIngredient.js') ?>" defer></script>

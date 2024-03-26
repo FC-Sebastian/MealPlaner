@@ -20,27 +20,21 @@ class Dashboard extends BaseController
         $day = date('w');
         $dayCounter = 0;
 
-        $row = '<tr>';
+        $row = '<div class="col-12 d-flex justify-content-around">';
         for ($i = 1; $i <= 7; $i++) {
             if ($i >= $day) {
-                $row .= '<td class="h4rem"><input type="hidden" value="'.date('Y').'-'.date('m').'-'.date("d")+$dayCounter.'"></tdclas>';
+                $row .= '<div class="h-4rem bg-light flex-fill border"><input type="hidden" value="'.date('Y').'-'.date('m').'-'.date("d")+$dayCounter.'"></div>';
                 $dayCounter++;
             } else {
-                $row .= '<td class="bg-dark bg-opacity-25"></td>';
+                $row .= '<div class="bg-secondary h-4rem flex-fill border"></div>';
             }
         }
-        $row .= '</tr><tr>';
+        $row .= '</div><div class="col-12 d-flex justify-content-around">';
         for ($i = 1; $i <= 7; $i++) {
-            $row .= '<td class="h4rem"><input type="hidden" value="'.date('Y').'-'.date('m').'-'.date("d")+$dayCounter.'"></td>';
+            $row .= '<div class="h-4rem bg-light flex-fill border"><input type="hidden" value="'.date('Y').'-'.date('m').'-'.date("d")+$dayCounter.'"></div>';
             $dayCounter++;
         }
-        $row .= '</tr>';
-        $row .= '</tr><tr>';
-        for ($i = 1; $i <= 7; $i++) {
-            $row .= '<td class="h4rem"><input type="hidden" value="'.date('Y').'-'.date('m').'-'.date("d")+$dayCounter.'"></td>';
-            $dayCounter++;
-        }
-        $row .= '</tr>';
+        $row .= '</div>';
         return $row;
     }
 }
