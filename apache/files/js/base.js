@@ -4,7 +4,7 @@ function createFloatingInput(inputName, labelText, required = true)
     div.className = 'row w-50 mx-auto form-floating mb-2';
     let input = document.createElement('input');
     input.type = 'text';
-    input.className = 'col-12 form-control';
+    input.className = 'col-12 form-control bg-secondary';
     input.name = inputName;
     input.placeholder = '';
     input.required = required;
@@ -37,7 +37,7 @@ function createSelectInput(name, defaultOptionText, defaultOptionValue, options,
     let div = document.createElement('div');
     div.className = 'row w-50 mx-auto mb-2';
     let select = document.createElement('select');
-    select.className = 'col-12 form-select';
+    select.className = 'col-12 form-select bg-secondary';
     select.name = name;
     select.required = required;
 

@@ -1,3 +1,17 @@
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #EB1616;
+    border-radius: 10px;
+}
+
 .table-fixed {
     table-layout: fixed;
 }
@@ -8,6 +22,10 @@
 
 .h-10rem {
     max-height: 10rem;
+}
+
+.h-6rem {
+    height: 6rem;
 }
 
 .h-4rem {

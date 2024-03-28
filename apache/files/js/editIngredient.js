@@ -21,7 +21,7 @@ function addBuyOptionDiv()
     let index = buyOptionDiv.children().length;
 
     let div = document.createElement('div');
-    div.className = 'card card-body w-50 mx-auto mb-2';
+    div.className = 'card card-body bg-dark w-50 mx-auto mb-2';
 
     let priceDiv = createFloatingInput('buyOption[' + index + '][price]', 'Preis');
     let amountDiv = createFloatingInput('buyOption[' + index + '][amount]', 'Menge');

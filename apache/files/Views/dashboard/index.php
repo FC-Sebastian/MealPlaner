@@ -26,7 +26,8 @@
 
         <div class="col-4">
             <div class="bg-secondary rounded p-4">
-                <h5>EinkaufsZettel:</h5>
+
+                <h5>Einkaufszettel:</h5>
                 <table class="table table-fixed">
                     <thead>
                     <tr>
@@ -38,67 +39,22 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+
                 <div class="h-10rem overflow-auto">
                     <table class="table table-fixed">
-                        <tr>
-                            <td>1</td>
-                            <td>Kilogramm</td>
-                            <td>Kartoffeln</td>
-                            <td>4.20 €</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Kilogramm</td>
-                            <td>Kartoffeln</td>
-                            <td>4.20 €</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Kilogramm</td>
-                            <td>Kartoffeln</td>
-                            <td>4.20 €</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Kilogramm</td>
-                            <td>Kartoffeln</td>
-                            <td>4.20 €</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Kilogramm</td>
-                            <td>Kartoffeln</td>
-                            <td>4.20 €</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Kilogramm</td>
-                            <td>Kartoffeln</td>
-                            <td>4.20 €</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Kilogramm</td>
-                            <td>Kartoffeln</td>
-                            <td>4.20 €</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Kilogramm</td>
-                            <td>Kartoffeln</td>
-                            <td>4.20 €</td>
-                        </tr>
                     </table>
                 </div>
+
                 <table class="table table-fixed">
                     <thead><tr><td colspan="4"></td></tr></thead>
                     <tbody>
                         <tr>
                             <td colspan="3">Insgesamt:</td>
-                            <td>4.20 €</td>
+                            <td>0,00 €</td>
                         </tr>
                     </tbody>
                 </table>
+
             </div>
         </div>
 
@@ -114,23 +70,11 @@
 
                                 <div class="overflow-auto d-flex h-20rem">
                                     <?php foreach ($controller->getRecipes() as $recipe) { ?>
-                                        <div class="me-1 p-2 text-center bg-dark rounded">
-                                            <img class="rounded h-75" src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Mallard2.jpg">
+                                        <div class="me-2 p-2 text-center bg-dark rounded">
+                                            <img class="rounded h-75" src="<?= $controller->getUrl('img/giphy.gif') ?>">
                                             <div class="w-100 text-wrap mx-auto"><?= $recipe->getTitle() ?></div>
                                         </div>
                                     <?php } ?>
-                                    <div class="me-1 p-2 text-center bg-dark rounded">
-                                        <img class="rounded h-75" src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Mallard2.jpg">
-                                        <div class="w-100 text-wrap mx-auto">Ente</div>
-                                    </div>
-                                    <div class="me-1 p-2 text-center bg-dark rounded">
-                                        <img class="rounded h-75" src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Mallard2.jpg">
-                                        <div class="w-100 text-wrap mx-auto">Ente</div>
-                                    </div>
-                                    <div class="me-1 p-2 text-center bg-dark rounded">
-                                        <img class="rounded h-75" src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Mallard2.jpg">
-                                        <div class="w-100 text-wrap mx-auto">Ente</div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -146,26 +90,10 @@
                                     <div class="col-12 d-flex flex-column h-20rem">
                                         <?php if (false) { ?>
                                             <div class="mb-1 p-2 text-center bg-dark rounded">
-                                                <img class="rounded w-100" src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Mallard2.jpg">
+                                                <img class="rounded w-100" src="<?= $controller->getUrl('img/giphy.gif') ?>">
                                                 <div class="w-100 text-wrap mx-auto">Ente</div>
                                             </div>
                                         <?php } ?>
-                                        <div class="mb-1 p-2 text-center bg-dark rounded">
-                                            <img class="rounded w-100" src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Mallard2.jpg">
-                                            <div class="w-100 text-wrap mx-auto">Ente</div>
-                                        </div>
-                                        <div class="mb-1 p-2 text-center bg-dark rounded">
-                                            <img class="rounded w-100" src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Mallard2.jpg">
-                                            <div class="w-100 text-wrap mx-auto">Ente</div>
-                                        </div>
-                                        <div class="mb-1 p-2 text-center bg-dark rounded">
-                                            <img class="rounded w-100" src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Mallard2.jpg">
-                                            <div class="w-100 text-wrap mx-auto">Ente</div>
-                                        </div>
-                                        <div class="mb-1 p-2 text-center bg-dark rounded">
-                                            <img class="rounded w-100" src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Mallard2.jpg">
-                                            <div class="w-100 text-wrap mx-auto">Ente</div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

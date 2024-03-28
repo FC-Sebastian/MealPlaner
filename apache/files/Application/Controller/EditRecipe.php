@@ -19,6 +19,8 @@ class EditRecipe extends BaseController
 
     public function save()
     {
+        print_r($_FILES);
+
         $recipe = new \Model\Recipe();
         if ($id = $this->getRequestParameter('id') !== false) {
             $recipe->setId($id);
@@ -26,6 +28,7 @@ class EditRecipe extends BaseController
         $recipe->setTitle($this->getRequestParameter('title'));
         $recipe->setRecipe($this->getRequestParameter('recipe'));
         $recipe->setPortions($this->getRequestParameter('portions'));
+        $recipe->setImage($this->handleFileUpload('recipe'));
         $recipe->save();
 
         $this->edit = $recipe;
@@ -47,11 +50,30 @@ class EditRecipe extends BaseController
     public function render()
     {
         if ($id = $this->getRequestParameter('id')) {
-            $ingredient = new \Model\Ingredient();
-            $ingredient->load($id);
+            $recipe = new \Model\Recipe();
+            $recipe->load($id);
 
-            $this->edit = $ingredient;
+            $this->edit = $recipe;
         }
         parent::render();
+    }
+
+    protected function handleFileUpload($targetDir)
+    {
+        if(isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["error"] == 0) {
+            $targetDir = __DIR__."/../../img/$targetDir";
+            $targetFile = $targetDir . basename($_FILES["fileToUpload"]["name"]); // Specify the path of the file
+
+            // Check if the file already exists
+            if (file_exists($targetFile)) {
+                $targetFile = $targetDir . hash('md5' ,date('Y-m-d H:i:s')) . basename($_FILES["fileToUpload"]["name"]);
+            }
+            // Attempt to move the uploaded file to the specified directory
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $targetFile)) {
+                return substr($targetFile, strpos($targetFile, '/', -1));
+            } else {
+                return "";
+            }
+        }
     }
 }

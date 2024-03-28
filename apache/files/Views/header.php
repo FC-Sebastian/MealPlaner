@@ -36,7 +36,7 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
-                <a href="index.html" class="navbar-brand mx-4">
+                <a href="<?= $controller->getUrl() ?>" class="navbar-brand mx-4">
                     <h3 class="text-primary">MealPlaner</h3>
                 </a>
                 <div class="navbar-nav w-100">
